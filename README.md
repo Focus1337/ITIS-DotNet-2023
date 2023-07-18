@@ -1,2 +1,7 @@
-# ITIS-DotNet-2023
-ITIS .NET 2022-2023 Homework, class work, exams
+## Домашки, задачи с семенаров и экзамены
+* Зимний экзамен (TicTacToe)
+* Летний экзамен (CocknetExam)
+* gRPC (gRPC-edu)
+* Kafka (KafkaDotNet)
+* Serilog (SerilogProj)
+* Android (android-edu)
