@@ -1,0 +1,29 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "GrpcGreeterClient";
+package greet;
+
+// The greeting service definition.
+service Operator {
+  // Sends a greeting
+  rpc Calculate (OperateRequest) returns (OperateReply);
+}
+
+enum Operation {
+  PLUS = 0;
+  MINUS = 1;
+  MULTIPLY = 2;
+  DIVIDE = 3;
+}
+
+// The request message containing the user's name.
+message OperateRequest {
+  int64 argument1 = 1;
+  Operation operation = 2;
+  int64 argument2 = 3;
+}
+
+// The response message containing the greetings.
+message OperateReply {
+  int64 result = 1;
+}
