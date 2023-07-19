@@ -1,0 +1,34 @@
+﻿services:
+  
+  back:
+    build:
+      context: .
+      dockerfile: Back.Web/Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    volumes:
+      - "/app/Back.Web/bin"
+      - "/app/Back.Web/obj"
+      - "/app/Back.Core/bin"
+      - "/app/Back.Core/obj"
+      - "/app/Back.Infrastructure/bin"
+      - "/app/Back.Infrastructure/obj"
+      - './Back.Web:/app/Back.Web'
+      - './Back.Core/:/app/Back.Core'
+      - './Back.Infrastructure/:/app/Back.Infrastructure'
+    depends_on:
+      - postgres
+  
+  postgres:
+    image: postgres:14.5
+    environment:
+      POSTGRES_DB: "cocknetDb"
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "pass"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    ports:
+      - "5432:5432"
+
+name: cocknet
