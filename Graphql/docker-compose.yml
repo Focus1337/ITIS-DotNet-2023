@@ -1,0 +1,25 @@
+﻿services:
+  api:
+    build:
+      context: .
+      dockerfile: /Graph/Dockerfile
+    ports:
+      - 81:81
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    volumes:
+      - "/app/Graph/bin"
+      - "/app/Graph/obj"
+      - './Graph/:/app/Graph'
+    depends_on:
+      - postgres
+  
+  postgres:
+    image: postgres:14.5
+    environment:
+      POSTGRES_DB: "graphdb"
+      POSTGRES_USER: "testuser"
+      POSTGRES_PASSWORD: "testpass"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    ports:
+      - 5432:5432
