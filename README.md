@@ -5,4 +5,3 @@
 * Kafka (KafkaDotNet)
 * Serilog (SerilogProj)
 * Android (android-edu)
-* Clickhouse, Cassandra (clickhouse-cassandra)
